@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'editsubject',
     loadChildren: () => import('./editsubject/editsubject.module').then( m => m.EditsubjectPageModule)
+  },
+  {
+    path: 'newsubject',
+    loadChildren: () => import('./newsubject/newsubject.module').then( m => m.NewsubjectPageModule)
+  },
+  {
+    path: 'students',
+    loadChildren: () => import('./students/students.module').then( m => m.StudentsPageModule)
   }
 ];
 @NgModule({

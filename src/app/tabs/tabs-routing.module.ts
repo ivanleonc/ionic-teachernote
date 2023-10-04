@@ -28,6 +28,14 @@ const routes: Routes = [
         loadChildren: () => import('../editsubject/editsubject.module').then(m => m.EditsubjectPageModule)
       },
       {
+        path: 'newsubject',
+        loadChildren: () => import('../newsubject/newsubject.module').then(m => m.NewsubjectPageModule)
+      },
+      {
+        path: 'students/:id',
+        loadChildren: () => import('../students/students.module').then(m => m.StudentsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

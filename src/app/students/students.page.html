@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title *ngIf="selected">Estudiantes de: {{selected.namesubject}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let studentItem of students">
+    <ion-item>
+      <ion-icon slot="start" name="person-circle"></ion-icon>
+      <ion-label>
+        <h2>{{studentItem.namestudent}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-card-content>
+      <p>Alguna descripcion del estudiante.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, totam?</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

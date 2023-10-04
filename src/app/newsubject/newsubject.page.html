@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear Materia</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="saveSubject(newSubject)" #newSubjectForm="ngForm">
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-input label="ID:" type="number" name="id" [(ngModel)]="newSubject.id" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Materia" type="text"  name="namesubject" [(ngModel)]="newSubject.namesubject" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Salon" type="text"  name="lounge" [(ngModel)]="newSubject.lounge" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Facultad" placeholder="Seleccióna la facultad" value="{{newSubject.faculty}}" [(ngModel)]="newSubject.faculty" name="faculty">
+        <ion-select-option value="Arte y Diseño">Arte y Diseño</ion-select-option>
+        <ion-select-option value="Ciencias Sociales y de la Administracción">Ciencias Sociales y de la Administracción</ion-select-option>
+        <ion-select-option value="Educacion">Educacion</ion-select-option>
+        <ion-select-option value="Ingenieria">Ingenieria</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Programa" placeholder="Seleccióna un programa" value="{{newSubject.program}}" [(ngModel)]="newSubject.program" name="program">
+        <ion-select-option value="Desarrollo de Software">Desarrollo de Software</ion-select-option>
+        <ion-select-option value="Ingenieria Informatica">Ingenieria Informatica</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Semestre" placeholder="Seleccióna un semestre" value="{{newSubject.semester}}" [(ngModel)]="newSubject.semester" name="semester">
+        <ion-select-option value="1">1</ion-select-option>
+        <ion-select-option value="2">2</ion-select-option>
+        <ion-select-option value="3">3</ion-select-option>
+        <ion-select-option value="4">4</ion-select-option>
+        <ion-select-option value="5">5</ion-select-option>
+        <ion-select-option value="6">6</ion-select-option>
+        <ion-select-option value="7">7</ion-select-option>
+        <ion-select-option value="8">8</ion-select-option>
+        <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
+      </ion-select>
+    </ion-item> 
+  </ion-list>
+  
+  <ion-button expand="full" class="ion-margin-horizontal" slot="primary" type="submit" [disabled]="!this.newSubjectForm.form.valid">
+    <ion-icon name="save-outline"></ion-icon>
+    &nbsp;Guardar</ion-button>
+</form>
+  <ion-note color="medium" class="ion-margin-horizontal">
+    Si deseas agregar una materia llena todos los campos.
+  </ion-note>
+  
+</ion-content>
