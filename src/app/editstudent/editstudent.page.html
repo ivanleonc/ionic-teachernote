@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Estudiantes</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" *ngIf="selected">
+  <form (ngSubmit)="edit(selected)" #editForm="ngForm">
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-input label="ID:" type="number" readonly="true" name="id" [(ngModel)]="selected.id" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nombre:" type="text"  name="namesubject" [(ngModel)]="selected.namestudent" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Ausencias:" type="number"  name="lounge" [(ngModel)]="selected.absence" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Parcial 1:" type="number"  name="lounge" [(ngModel)]="selected.partialgrade1" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Parcial 2:" type="number"  name="lounge" [(ngModel)]="selected.partialgrade2" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Parcial 3:" type="number"  name="lounge" [(ngModel)]="selected.partialgrade3" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nota final:" type="number"  name="lounge" [(ngModel)]="selected.finalnote" required></ion-input>
+    </ion-item>
+  </ion-list>
+  
+  <ion-button expand="full" class="ion-margin-horizontal" slot="primary" type="submit" *ngIf="selected" [disabled]="!this.editForm.form.valid">
+    <ion-icon name="brush-outline"></ion-icon>
+    &nbsp;Modificar</ion-button>
+</form>
+</ion-content>

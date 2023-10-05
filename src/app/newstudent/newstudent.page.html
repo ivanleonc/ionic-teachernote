@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Crear Estudiante</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="saveStudent(newStudent)" #newStudentForm="ngForm">
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-input label="ID:" type="number" name="id" [(ngModel)]="newStudent.id" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nombre del estudiante:" type="text"  name="namestudent" [(ngModel)]="newStudent.namestudent" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Ausencias:" type="number"  name="absence" [(ngModel)]="newStudent.absence" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Parcial 1:" type="number"  name="partialgrade1" [(ngModel)]="newStudent.partialgrade1" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Parcial 2:" type="number"  name="partialgrade2" [(ngModel)]="newStudent.partialgrade2" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Parcial 3:" type="number"  name="partialgrade3" [(ngModel)]="newStudent.partialgrade3" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nota final:" type="number"  name="finalnote" [(ngModel)]="newStudent.finalnote" required></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" class="ion-margin-horizontal" slot="primary" type="submit" [disabled]="!this.newStudentForm.form.valid">
+    <ion-icon name="save-outline"></ion-icon>
+    &nbsp;Guardar</ion-button>
+</form>
+  <ion-note color="medium" class="ion-margin-horizontal">
+    Si deseas agregar una materia llena todos los campos.
+  </ion-note>
+  
+</ion-content>

@@ -25,6 +25,10 @@ export class SubjectService {
     id = Number(id);
     return of (SUBJECT.find(x => x.id === id));
   }
+  getSubjectForStudent(id_student:number):Observable<Subject[] | undefined>{
+    id_student = Number(id_student);
+      return of (SUBJECT.filter(x => x.id_student === id_student));
+  }
   editSubject(subject:Subject):Observable<Subject | undefined>{
     let id = Number(subject.id);
     let index:number = SUBJECT.findIndex(x => x.id === id)

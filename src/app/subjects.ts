@@ -4,5 +4,6 @@ export interface Subject {
     lounge: string,
     faculty: string,
     program: string,
-    semester: string
+    semester: string,
+    id_student: number
 }

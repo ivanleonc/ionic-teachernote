@@ -6,14 +6,15 @@ import { Student } from '../student';
 import { StudentService } from '../services/student.service';
 
 @Component({
-  selector: 'app-students',
-  templateUrl: './students.page.html',
-  styleUrls: ['./students.page.scss'],
+  selector: 'app-subject',
+  templateUrl: './subject.page.html',
+  styleUrls: ['./subject.page.scss'],
 })
-export class StudentsPage implements OnInit {
+export class SubjectPage implements OnInit {
+
   id:any;
-  selected? : Subject;
-  public students? : Student[];
+  selected?:Student;
+  public subject?:Subject[];
 
   constructor(
     private route: ActivatedRoute, private router: Router,
@@ -22,16 +23,17 @@ export class StudentsPage implements OnInit {
 
   ngOnInit() {
     this.route.params.forEach((params: Params)=>{
-      this.subjectService.getASubject(params['id']).subscribe(selected =>{
+      this.studentService.getAStudent(params['id']).subscribe(selected =>{
         this.selected = selected;
       });
-      this.studentService.getStudentsForSubject(params['id']).subscribe(students =>{
-        this.students = students
+      this.subjectService.getSubjectForStudent(params['id']).subscribe(subject =>{
+        this.subject = subject
       });
     });
   }
   back(): void{
-    this.router.navigate(["tabs/tab2"]);
+
+    this.router.navigate(["tabs/tab3"]);
   }
- 
+
 }
